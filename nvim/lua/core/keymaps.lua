@@ -38,8 +38,8 @@ vim.keymap.set("n", "<Right>", ":vertical resize -2<CR>", opts)
 -- Buffers
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<s-Tab>", ":bprevious<CR>", opts)
-vim.keymap.set("n", "<s-x>", ":bdelete!<cr>", opts)   -- close buffer
-vim.keymap.set("n", "<s-n>", "<cmd> enew <cr>", opts) -- new buffer
+vim.keymap.set("n", "<c-x>", ":bdelete!<cr>", opts)   -- close buffer
+vim.keymap.set("n", "<c-n>", "<cmd> enew <cr>", opts) -- new buffer
 
 -- Window management
 vim.keymap.set("n", "<leader>\\", "<C-w>v", opts)     -- split window vertically
