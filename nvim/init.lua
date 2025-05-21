@@ -30,10 +30,11 @@ local plugins = {
 	require("plugins.indent-blankline"),
 	require("plugins.misc"),
 	require("plugins.vim-tmux-navigator"),
-	require("plugins.autosave"),
+	require("plugins.auto-save"),
 	require("plugins.copilot"),
 	require("plugins.toggleterm"),
 	require("plugins.repl"),
+	require("plugins.auto-session"),
 }
 
 require("lazy").setup(plugins, opts)

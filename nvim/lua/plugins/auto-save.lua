@@ -5,6 +5,18 @@
 --
 -- Filename: ~/github/dotfiles-latest/neovim/nvim-lazyvim/lua/plugins/auto-save.lua
 -- ~/github/dotfiles-latest/neovim/nvim-lazyvim/lua/plugins/auto-save.lua
+local group = vim.api.nvim_create_augroup("autosave", {})
+
+vim.api.nvim_create_autocmd("User", {
+	pattern = "AutoSaveWritePost",
+	group = group,
+	callback = function(opts)
+		if opts.data.saved_buffer ~= nil then
+			local filename = vim.api.nvim_buf_get_name(opts.data.saved_buffer)
+			vim.notify("AutoSave: saved " .. filename .. " at " .. vim.fn.strftime("%H:%M:%S"), vim.log.levels.INFO)
+		end
+	end,
+})
 
 return {
 	{
@@ -16,14 +28,6 @@ return {
 			-- All of these are just the defaults
 			--
 			enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
-			execution_message = {
-				enabled = true,
-				message = function() -- message to print on save
-					return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
-				end,
-				dim = 0.18, -- dim the color of `message`
-				cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
-			},
 			trigger_events = { -- See :h events
 				immediate_save = { "BufLeave", "FocusLost" }, -- vim events that trigger an immediate save
 				defer_save = { "InsertLeave", "TextChanged" }, -- vim events that trigger a deferred save (saves after `debounce_delay`)
