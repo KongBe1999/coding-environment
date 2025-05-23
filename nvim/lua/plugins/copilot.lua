@@ -17,6 +17,18 @@ return {
 				complete = {
 					insert = "<C>-<Tab>", -- I don't know how it works, but it does, now Tab actually do its job
 				},
+				close = {
+					normal = "q",
+					insert = "q",
+				},
+				reset = {
+					normal = "<C-c>",
+					insert = "<C-c>",
+				},
+				submit_prompt = {
+					normal = "<CR>",
+					insert = "<C-CR>",
+				},
 			},
 			window = {
 				layout = "vertical",

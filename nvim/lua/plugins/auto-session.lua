@@ -12,8 +12,9 @@ return {
 	---@module "auto-session"
 	---@type AutoSession.Config
 	opts = {
+		auto_restore_last_session = true, -- Automatically restore last session
 		pre_cwd_changed_cmds = {
-			"Neotree close", -- Close NERDTree before saving session
+			"Neotree close",        -- Close Neotree before saving session
 		},
 		post_cwd_changed_cmds = {
 			function()
